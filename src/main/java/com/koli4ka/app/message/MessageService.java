@@ -21,7 +21,7 @@ public class MessageService {
         Message message = new Message();
         message.setSenderId(messageRequest.getSenderId());
         message.setReceiverId(messageRequest.getReceiverId());
-        message.setContent(messageRequest.getContent());
+        message.setMessage(messageRequest.getMessage());
         message.setTimeStamp(LocalDateTime.now());
 
         messageRepository.save(message);
@@ -53,7 +53,7 @@ public class MessageService {
         MessageResponse response = new MessageResponse();
         response.setSenderId(message.getSenderId());
         response.setReceiverId(message.getReceiverId());
-        response.setContent(message.getContent());
+        response.setMessage(message.getMessage());
 
         return response;
     }

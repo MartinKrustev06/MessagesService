@@ -8,5 +8,5 @@ import java.util.UUID;
 public class MessageResponse {
     private UUID senderId;
     private UUID receiverId;
-    private String content;
+    private String message;
 }

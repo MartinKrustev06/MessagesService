@@ -28,11 +28,11 @@ public class MessageController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @GetMapping
+    @GetMapping("/{senderId}/{receiverId}")
     public ResponseEntity<List<MessageResponse>> getChat(
-            @RequestParam UUID user1,
-            @RequestParam UUID user2) {
-        List<MessageResponse> chat = messageService.getChat(user1, user2);
+            @PathVariable UUID senderId,
+            @PathVariable UUID receiverId) {
+        List<MessageResponse> chat = messageService.getChat(senderId, receiverId);
         return ResponseEntity.ok(chat);
     }
 }

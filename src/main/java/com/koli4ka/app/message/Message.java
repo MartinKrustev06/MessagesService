@@ -21,7 +21,7 @@ public class Message {
     @Column(nullable = false)
     private UUID receiverId;
     @Column(nullable = false)
-    private String content;
+    private String message;
     @Column(nullable = false)
     private LocalDateTime timeStamp;
 

@@ -7,5 +7,5 @@ import java.util.UUID;
 public class MessageRequest {
     private UUID senderId;
     private UUID receiverId;
-    private String content;
+    private String message;
 }
