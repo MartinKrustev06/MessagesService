@@ -57,4 +57,26 @@ public class MessageService {
 
         return response;
     }
+
+    public List<UUID> getUUIDS(UUID senderId) {
+
+        List<Message> messageBySenderId = messageRepository.getMessageBySenderId(senderId);
+        List<Message> messageByReceiverId = messageRepository.getMessageByReceiverId(senderId);
+        List<UUID> uuids = new ArrayList<>();
+        for (Message message : messageBySenderId) {
+            if(uuids.contains(message.getReceiverId())){
+                continue;
+            }
+            uuids.add(message.getReceiverId());
+        }
+       for  (Message message : messageByReceiverId) {
+            if(uuids.contains(message.getSenderId())){
+                continue;
+            }
+            uuids.add(message.getSenderId());
+        }
+
+        System.out.println(uuids);
+        return uuids;
+    }
 }

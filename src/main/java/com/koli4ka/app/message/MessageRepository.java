@@ -10,4 +10,7 @@ import java.util.UUID;
 public interface MessageRepository extends JpaRepository<Message, UUID> {
 
     List<Message> findBySenderIdAndReceiverId(UUID senderId, UUID receiverId);
+
+    List<Message> getMessageBySenderId(UUID senderId);
+    List<Message> getMessageByReceiverId(UUID receiverId);
 }

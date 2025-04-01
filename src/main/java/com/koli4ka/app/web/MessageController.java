@@ -35,4 +35,11 @@ public class MessageController {
         List<MessageResponse> chat = messageService.getChat(senderId, receiverId);
         return ResponseEntity.ok(chat);
     }
+    @GetMapping("/getChats/{senderId}")
+    public ResponseEntity<List<UUID>> getChats(@PathVariable UUID senderId){
+
+        List<UUID> uuids=messageService.getUUIDS(senderId);
+        return ResponseEntity.ok(uuids);
+
+    }
 }
